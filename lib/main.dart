@@ -2,7 +2,6 @@ import 'package:f_44_oua/feature/home/home_page.dart';
 import 'package:f_44_oua/feature/home/models/note_page_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'feature/home/note_page.dart';
 
 void main() {
