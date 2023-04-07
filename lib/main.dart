@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'feature/home/note_page.dart';
+import 'initialize/app_start_init.dart';
 
-void main() {
+Future<void> main() async {
+  await ApplicationStart.init();
   runApp(const MyApp());
 }
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       create: (context)=> NoteData(),
       builder: (context, child) => const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: NotePage(),
+        home: HomePage(),
       ),
       );
   }
