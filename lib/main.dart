@@ -1,5 +1,9 @@
 import 'package:f_44_oua/feature/home/home_page.dart';
+import 'package:f_44_oua/feature/home/models/note_page_data.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'feature/home/note_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +15,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (context)=> NoteData(),
+      builder: (context, child) => const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: NotePage(),
       ),
-      home: const HomePage(),
-    );
+      );
   }
 }
