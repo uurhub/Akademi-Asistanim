@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
+  const HomePage({super.key, required this.username});
+  final username;
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   int _selectedIndex = 0;
+  
+ 
 
   void _onItemTapped(int index) {
     setState(() {
@@ -18,6 +20,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget build(BuildContext context) {
+    var temp = (widget.username).substring(0, widget.username.indexOf("@"));
+    final us = temp[0].toString().toUpperCase() + temp.toString().substring(1);
     final now = DateTime.now();
     final msg = now.hour >= 18 || now.hour < 6 ? "İyi Akşamlar" : "İyi Günler";
     return Scaffold(
@@ -31,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "$msg Kullanıcı.",
+                  "$msg $us.",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
                 ),
                 Padding(
