@@ -371,7 +371,7 @@ class _AdminEventsState extends State<AdminEvents> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Etkinlik Ayarları"),),
+      appBar: AppBar(title: Text("Etkinlik Ayarları"),backgroundColor: Color(0xffF4B400),),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         

@@ -5,7 +5,10 @@ import 'package:f_44_oua/feature/events/events_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+import '../announcement/announcement_view.dart';
 import '../auth/authentication_view.dart';
+import '../duties/pass.dart';
 
 
 class DataContainer extends InheritedWidget {
@@ -62,8 +65,8 @@ class _AdminPageState extends State<AdminPage> {
               await FirebaseAuth.instance.signOut();
               Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => AuthenticationView()),
-                  ModalRoute.withName("/home"));
+                  MaterialPageRoute(builder: (context) => MyApp()),
+                  ModalRoute.withName("/main"));
             },
           ),
         ],
@@ -143,7 +146,11 @@ class _mainPageState extends State<mainPage> {
                         children: [
                           InkWell(
                             onTap: () {
-                              print("Duyurular Sayfasına Gider");
+                               Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const AnnouncementView(),
+                                    ));
                             },
                             child: Container(
                               height: 177,
@@ -173,7 +180,10 @@ class _mainPageState extends State<mainPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              print("Görevlere Gider");
+                              Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) => const PassPage(),
+                                    ));
                             },
                             child: Container(
                               height: 177,
@@ -241,36 +251,7 @@ class _mainPageState extends State<mainPage> {
                               ),
                             ),
                           ),
-                          InkWell(
-                            onTap: () {
-                              print("Notlarıma Gider.");
-                            },
-                            child: Container(
-                              height: 177,
-                              width: 160,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Color(0xFF0F9D58),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: const [
-                                  Icon(
-                                    Icons.note_rounded,
-                                    color: Colors.white,
-                                    size: 90,
-                                  ),
-                                  Text(
-                                    'Notlarım',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          
                         ],
                       ),
                     ]),

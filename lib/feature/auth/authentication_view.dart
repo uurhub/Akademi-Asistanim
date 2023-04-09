@@ -25,8 +25,6 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
                 var check = (state.user?.email.toString())
                     ?.substring(0, state.user?.email.toString().indexOf("@"));
                 if (check == "akademi") {
-                   
-                  
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
@@ -50,24 +48,28 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
           ],
           child: SafeArea(
             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/oua_logo.png',
-                    height: 128,
-                    width: 128,
-                  ),
-                  Padding(
-                      padding: context.paddingLow,
-                      child: firebase.LoginView(
-                        action: firebase.AuthAction.signIn,
-                        showTitle: false,
-                        providers: firebase.FirebaseUIAuth.providersFor(
-                            FirebaseAuth.instance.app),
-                      )),
-                ],
-              ),
+              child: ListView.builder(
+                  itemCount: 1,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/akademi_asistanim_logo.png',
+                          height: 200,
+                          width: 200,
+                        ),
+                        Padding(
+                            padding: context.paddingLow,
+                            child: firebase.LoginView(
+                              action: firebase.AuthAction.signIn,
+                              showTitle: false,
+                              providers: firebase.FirebaseUIAuth.providersFor(
+                                  FirebaseAuth.instance.app),
+                            )),
+                      ],
+                    );
+                  }),
             ),
           )),
     );

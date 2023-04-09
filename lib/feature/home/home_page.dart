@@ -1,9 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:f_44_oua/feature/auth/authentication_view.dart';
+import 'package:f_44_oua/feature/duties/pass.dart';
 import 'package:f_44_oua/feature/events/events_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+import '../announcement/announcement_view.dart';
 import '../coming_events/coming_events.dart';
 import '../notes_page/note_page.dart';
 import '../profile_page/profile_page.dart';
@@ -62,8 +65,8 @@ class _HomePageState extends State<HomePage> {
               await FirebaseAuth.instance.signOut();
               Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => AuthenticationView()),
-                  ModalRoute.withName("/home"));
+                  MaterialPageRoute(builder: (context) => MyApp()),
+                  ModalRoute.withName("/main"));
             },
           ),
         ],
@@ -124,7 +127,7 @@ class _MainPageState extends State<MainPage> {
               Column(children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
-                  child: Image.asset('assets/oua_logo.png',
+                  child: Image.asset('assets/akademi_asistanim_app_logo.png',
                       height: 128, width: 128),
                 ),
               ]),
@@ -146,7 +149,7 @@ class _MainPageState extends State<MainPage> {
                           children: [
                             InkWell(
                               onTap: () {
-                                print("Duyurular Sayfasına Gider");
+                               Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AnnouncementView(),));
                               },
                               child: Container(
                                 height: 177,
@@ -177,7 +180,7 @@ class _MainPageState extends State<MainPage> {
                             ),
                             InkWell(
                               onTap: () {
-                                print("Görevlere Gider");
+                               Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PassPage(),));
                               },
                               child: Container(
                                 height: 177,

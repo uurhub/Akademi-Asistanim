@@ -62,7 +62,7 @@ class _pagesNotesState extends State<pagesNotes> {
           backgroundColor: Color(0xff0F9D58),
           child: Icon(
             Icons.add,
-            color: Color(0xffF4B400),
+            color: Colors.white,
           ),
         ),
         appBar: AppBar(

@@ -122,7 +122,7 @@ void updateNote(){
               child:
               const Icon(
                 Icons.add_comment,
-                color: Color(0xffF4B400)),
+                color: Colors.white),
               ),
           ),
         ],

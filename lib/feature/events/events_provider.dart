@@ -38,7 +38,7 @@ class EventsState extends Equatable {
 
   @override
   List<Object?> get props => [etkinlikler];
-
+  
   EventsState copyWith({
     List<Etkinlikler>? etkinlikler,
   }) {
