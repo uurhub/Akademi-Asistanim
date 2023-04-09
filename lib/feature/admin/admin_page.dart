@@ -53,7 +53,7 @@ class _AdminPageState extends State<AdminPage> {
   }
   CurvedNavigationBar footer() {
     return CurvedNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFf5f6fa),
         buttonBackgroundColor: Color(0xff4285F4),
         color: Color(0xff4285F4),
         animationDuration: Duration(milliseconds: 300),
