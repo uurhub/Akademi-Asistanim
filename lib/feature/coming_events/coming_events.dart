@@ -62,6 +62,8 @@ class _yaklasanEvent extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/yaklasanetk.png',height: 140,),
+            SizedBox(height: 10,),
             Chip(label: Text("Gelecek Etkinlik",style: TextStyle(fontSize: 16),)),
             Container(
               decoration: BoxDecoration(
